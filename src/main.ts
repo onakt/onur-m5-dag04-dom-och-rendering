@@ -9,11 +9,13 @@ import { billigast } from "./meny";
 // 1. Hämta h1 med document.querySelector("h1") och skriv ut dess textContent.
 const heading1 = document.querySelector("h1");
 console.log(heading1?.textContent);
+
 // 2. Ändra texten i #hero-rubrik till "Välkommen in!"
 const hero = document.querySelector("#hero-rubrik");
 if (hero) {
     hero.textContent = "Välkommen in!";
 }
+
 // 3. Hämta alla länkar i menyn med document.querySelectorAll("nav a").
 const menyLankar = document.querySelectorAll<HTMLAnchorElement>("nav a");
 //    Loopa med for...of och skriv ut varje länks href och text.
@@ -22,8 +24,14 @@ if (menyLankar) {
         console.log(lank.href, lank.textContent);
     }
 }
+
 // 4. Skapa ett nytt p-element (document.createElement), ge det texten
 //    "Dagens tips: prova en kardemummabulle." och lägg det sist i #hero med append.
+const p = document.createElement("p"); // elementet finns endast i JavaScript som ett DOM-element, men ännu inte placerat i HTML-dokumentet.
+p.textContent = "Dagens tips: prova en kardemummabulle.";
+if (hero) {
+    hero.append(p);
+}
 // 5. Lägg klassen "dagens" på #hero med classList.add. Ta bort den med classList.remove.
 // 6. Säkerhetsförsök: sätt p.innerHTML = '<img src="x" onerror="console.log(\'Attack!\')">'
 //    Vad händer i Console? Byt sedan till p.textContent med samma text. Vad händer nu?
