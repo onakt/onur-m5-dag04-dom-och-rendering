@@ -46,7 +46,8 @@ export function visaMeny(container: HTMLElement, ratter: Ratt[]): void {
   // Text som visas om listan är tom
   const tom = document.createElement("p");
   tom.classList.add("tom");
-  tom.textContent = "Inga rätter hittades."
+  // tom.textContent = "Inga rätter hittades.";
+  tom.textContent = "Just nu finns det inga rätter att visa. Försök igen lite senare!";
 
   // Töm containern
   container.replaceChildren();

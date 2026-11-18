@@ -60,6 +60,8 @@ const menyRubrik = document.querySelector<HTMLElement>("#meny-rubrik");
 if (menyLista && menyRubrik) {
     visaMeny(menyLista, meny);
     uppdateraRubrik(menyRubrik, meny.length);
+    // Testa tomt-läge
+    // visaMeny(menyLista, []);
 }
 // 9. Dagens rätt = den billigaste lunchen. Använd filter och billigast (från meny.js)
 //    och markeraDagensRatt.
