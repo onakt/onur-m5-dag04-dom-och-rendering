@@ -7,9 +7,21 @@ import { billigast } from "./meny";
 
 // DEL 1: utforska DOM:en ----------------------------------------------
 // 1. Hämta h1 med document.querySelector("h1") och skriv ut dess textContent.
+const heading1 = document.querySelector("h1");
+console.log(heading1?.textContent);
 // 2. Ändra texten i #hero-rubrik till "Välkommen in!"
+const hero = document.querySelector("#hero-rubrik");
+if (hero) {
+    hero.textContent = "Välkommen in!";
+}
 // 3. Hämta alla länkar i menyn med document.querySelectorAll("nav a").
+const menyLankar = document.querySelectorAll<HTMLAnchorElement>("nav a");
 //    Loopa med for...of och skriv ut varje länks href och text.
+if (menyLankar) {
+    for (const lank of menyLankar) {
+        console.log(lank.href, lank.textContent);
+    }
+}
 // 4. Skapa ett nytt p-element (document.createElement), ge det texten
 //    "Dagens tips: prova en kardemummabulle." och lägg det sist i #hero med append.
 // 5. Lägg klassen "dagens" på #hero med classList.add. Ta bort den med classList.remove.
