@@ -54,7 +54,24 @@ för att behandla innehållet som vanlig text.
 
 // DEL 2: koppla ihop med funktionerna i ui.js ----------------------------
 // 7. Hämta #meny-lista och #meny-rubrik.
+const menyLista = document.querySelector<HTMLElement>("#meny-lista");
+const menyRubrik = document.querySelector<HTMLElement>("#meny-rubrik");
 // 8. Anropa visaMeny med menyn, och uppdateraRubrik med antalet rätter.
+if (menyLista && menyRubrik) {
+    visaMeny(menyLista, meny);
+    uppdateraRubrik(menyRubrik, meny.length);
+}
 // 9. Dagens rätt = den billigaste lunchen. Använd filter och billigast (från meny.js)
 //    och markeraDagensRatt.
-// TODO
+// Plocka ut alla luncher ur menyn
+if (menyLista) {
+    // Välj alla luncher
+    const luncher = meny.filter((ratt) => ratt.kategori === "lunch");
+    // Hitta den billigaste lunchen
+    const billigasteLunchen = billigast(luncher);
+
+    //Markera den billigaste lunchen som dagens rätt!
+    if (billigasteLunchen) {
+        markeraDagensRatt(menyLista, billigasteLunchen.id);
+    }
+}
