@@ -56,7 +56,7 @@ export function visaMeny(container: HTMLElement, ratter: Ratt[]): void {
     container.append(tom);
     return;
   }
-  
+
   // Lägg in ett kort per rätt
   for (const ratt of ratter) {
     container.append(skapaRattKort(ratt));
@@ -65,11 +65,25 @@ export function visaMeny(container: HTMLElement, ratter: Ratt[]): void {
 
 // 3. Sätt rubrikens text: "Meny (8 rätter)". Ett enda: "Meny (1 rätt)".
 export function uppdateraRubrik(element: HTMLElement, antal: number): void {
-  // TODO
+  // Formatering baserad på antalet rätter
+  const antalRatter = antal === 1 ? `${antal} rätt` : `${antal} rätter`;
+  const uppdateradRubrik = `Meny (${antalRatter})`;
+
+  // Uppdatera elementet med ny rubrik
+  element.textContent = uppdateradRubrik;
 }
 
 // 4. Markera EN rätt som dagens rätt: klassen "dagens" ska finnas på kortet med rätt
 //    data-id, och inte på något annat kort. Anropas igen = markeringen flyttas.
 export function markeraDagensRatt(container: HTMLElement, id: number): void {
-  // TODO
+  // Hämta alla kort från containern
+  const allaKort = container.querySelectorAll("article");
+
+  for (const kort of allaKort) {
+    // är detta kortet för dagens rätt?
+    const arDagensRatt = kort.dataset.id === String(id);
+
+    // Tar bort klassen "dagens" om det inte är dagens rätt, och lägger till klassen om det är dagens rätt
+    kort.classList.toggle("dagens", arDagensRatt);
+  }
 }
