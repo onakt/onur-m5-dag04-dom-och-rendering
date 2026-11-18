@@ -38,9 +38,18 @@ if (hero) {
     hero.classList.add("dagens");
     hero.classList.remove("dagens");
 }
+
 // 6. Säkerhetsförsök: sätt p.innerHTML = '<img src="x" onerror="console.log(\'Attack!\')">'
+p.innerHTML = '<img src="x" onerror="console.log(\'Attack!\')">';
 //    Vad händer i Console? Byt sedan till p.textContent med samma text. Vad händer nu?
-// TODO
+// I console får jag upp texten "Attack!"
+p.textContent = "Attack!";
+// Nu ersätts bilden i p med texten "Attack!" i stället.
+/*
+Man ska aldrig sätta 'InnerHTML' med text som en användare eller ett API skrivit eftersom det kan
+innehålla skadlig HTML eller JavaScript-kod som kan köras på sidan. 'textContent' används i stället
+för att behandla innehållet som vanlig text.
+*/
 
 
 // DEL 2: koppla ihop med funktionerna i ui.js ----------------------------
