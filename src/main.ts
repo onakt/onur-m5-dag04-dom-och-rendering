@@ -40,7 +40,7 @@ if (hero) {
 }
 
 // 6. Säkerhetsförsök: sätt p.innerHTML = '<img src="x" onerror="console.log(\'Attack!\')">'
-p.innerHTML = '<img src="x" onerror="console.log(\'Attack!\')">';
+//p.innerHTML = '<img src="x" onerror="console.log(\'Attack!\')">';
 //    Vad händer i Console? Byt sedan till p.textContent med samma text. Vad händer nu?
 // I console får jag upp texten "Attack!"
 p.textContent = "Attack!";
